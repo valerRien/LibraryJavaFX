@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.project.javafxtest.controllers.AuthorizationController">
+    <children>
+        <AnchorPane fx:id="anchorPane" layoutY="97.0" prefHeight="303.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <TextField fx:id="loginField" layoutX="203.0" layoutY="88.0" prefHeight="41.0" prefWidth="254.0" promptText="логин">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="passwordField" layoutX="203.0" layoutY="144.0" prefHeight="41.0" prefWidth="254.0" promptText="пароль">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </PasswordField>
+            <Label layoutX="221.0" layoutY="21.0" prefHeight="50.0" prefWidth="219.0" text="Вход в систему">
+               <font>
+                  <Font name="Arial" size="28.0" />
+               </font>
+            </Label>
+            <Button fx:id="signInButton" layoutX="285.0" layoutY="213.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="90.0" text="Вход">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font></Button>
+         </children></AnchorPane>
+      <Label layoutX="126.0" prefHeight="107.0" prefWidth="448.0" text="Библиотека №3">
+         <font>
+            <Font name="Arial" size="60.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
