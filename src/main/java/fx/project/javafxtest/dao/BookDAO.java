@@ -6,7 +6,6 @@ import fx.project.javafxtest.models.BookProxy;
 import fx.project.javafxtest.models.Reader;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,10 +95,5 @@ public class BookDAO {
             proxyBooksList.add(new BookProxy(book));
         }
         return proxyBooksList;
-    }
-
-    public static void main(String[] args) throws Exception {
-        System.out.println(new BookDAO().getAllBooksWithReaders());
-        System.out.println(new SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date()));
     }
 }
