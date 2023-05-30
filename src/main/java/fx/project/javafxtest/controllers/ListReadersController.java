@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -32,6 +33,9 @@ public class ListReadersController implements Initializable {
 
     @FXML
     private ImageView homeButton;
+
+    @FXML
+    public ImageView addNewReaderButton;
 
     @FXML
     private ListView<Reader> listView;
@@ -52,7 +56,12 @@ public class ListReadersController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<Reader> readers = readersDAO.getTimeOutReaders();
+        List<Reader> readers = null;
+        try {
+            readers = readersDAO.getTimeOutReaders();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         List<Reader> list = listView.getItems();
         list.addAll(readers);
         listView.getSelectionModel().selectedItemProperty().addListener(this::selectionChanged);
@@ -65,15 +74,20 @@ public class ListReadersController implements Initializable {
         selectedReader = listView.getSelectionModel().getSelectedItem();
     }
 
-    public void mouseReleased(MouseEvent mouseEvent) {
+    public void mouseReleasedHomeButton(MouseEvent mouseEvent) {
         clickController.mouseReleasedOnImage(mouseEvent, homeButton, MainAppController.PATH);
     }
 
     public void sendNotice(MouseEvent mouseEvent) throws IOException {
         if (selectedReader != null) new MailSender().sendMail("Напоминание о сдаче книги",
                 "Здравствуйте, " + selectedReader.getName() + ". Напоминаем вам о необходимости своевременно сдавать книги в вбибиотеку. " +
-                        "Сейчас у вас в пользовании с истёкшим сроком: " + selectedReader.getBooks(), selectedReader.getEmail());
+                        "Сейчас у вас в пользовании с истёкшим сроком: " + selectedReader.getBook() + ", которую вы взяли " +
+                        selectedReader.getBook().getSubmission_date(), selectedReader.getEmail());
         else new Shake(sendNotice).playAnim();
+    }
+
+    public void mouseReleasedAddButton(MouseEvent mouseEvent) {
+        clickController.mouseReleasedOnImage(mouseEvent, addNewReaderButton, NewReaderController.PATH);
     }
 }
 

@@ -11,7 +11,7 @@
     <children>
         <AnchorPane layoutY="59.0" prefHeight="341.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <ListView fx:id="listView" prefHeight="277.0" prefWidth="700.0" />
+            <ListView fx:id="listView" layoutY="47.0" prefHeight="230.0" prefWidth="700.0" />
             <Label fx:id="selectedPanel" layoutX="14.0" layoutY="286.0" prefHeight="41.0" prefWidth="602.0" style="-fx-background-color: #ffff;" text="Выберите, чтобы напомнить об истечении срока сдачи">
                <font>
                   <Font name="Arial Black" size="18.0" />
@@ -22,15 +22,25 @@
                   <Image url="@../../../assets/2759679.png" />
                </image>
             </ImageView>
+            <Label fx:id="textTopLabel" layoutX="179.0" prefHeight="52.0" prefWidth="343.0" text="Читатели с просроченными книгами">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
         <Label layoutX="14.0" prefHeight="70.0" prefWidth="301.0" text="Библиотека №3">
             <font>
                 <Font name="Arial" size="40.0" />
             </font>
         </Label>
-      <ImageView fx:id="homeButton" fitHeight="58.0" fitWidth="66.0" layoutX="637.0" layoutY="2.0" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="homeButton" fitHeight="58.0" fitWidth="66.0" layoutX="637.0" layoutY="2.0" onMouseReleased="#mouseReleasedHomeButton" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../assets/678125.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="addNewReaderButton" fitHeight="70.0" fitWidth="70.0" layoutX="572.0" onMouseReleased="#mouseReleasedAddButton" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/7065750.png" />
          </image>
       </ImageView>
     </children>

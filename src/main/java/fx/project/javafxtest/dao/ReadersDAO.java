@@ -30,7 +30,7 @@ public class ReadersDAO {
     }
 
 
-    public List<Reader> getTimeOutReaders() {
+    public List<Reader> getTimeOutReaders() throws SQLException {
         return bookDAO.getTimeOutReaders();
     }
 }

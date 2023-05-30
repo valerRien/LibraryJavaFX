@@ -15,12 +15,12 @@
                 <Font name="Arial" size="40.0" />
             </font>
         </Label>
-      <ImageView fx:id="booksButton" fitHeight="58.0" fitWidth="71.0" layoutX="483.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="booksButton" fitHeight="58.0" fitWidth="71.0" layoutX="483.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" onMouseReleased="#mouseReleasedOnBooksButton">
          <image>
             <Image url="@../../../assets/999135.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="readersButton" fitHeight="58.0" fitWidth="65.0" layoutX="553.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" onMouseReleased="#mouseReleased">
+      <ImageView fx:id="readersButton" fitHeight="58.0" fitWidth="65.0" layoutX="553.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" onMouseReleased="#mouseReleasedOnReadersButton">
          <image>
             <Image url="@../../../assets/2236293.png" />
          </image>

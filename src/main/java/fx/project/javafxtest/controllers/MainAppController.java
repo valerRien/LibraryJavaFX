@@ -1,19 +1,14 @@
 package fx.project.javafxtest.controllers;
 
-import java.io.IOException;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-
-public class MainAppController {
+public class MainAppController implements Initializable {
 
     public static final String PATH = "/fx/project/javafxtest/MainAppFrame.fxml";
 
@@ -38,7 +33,16 @@ public class MainAppController {
     void initialize() {
     }
 
-    public void mouseReleased(MouseEvent mouseEvent) {
-        clickController.mouseReleasedOnImage(mouseEvent, readersButton,ListReadersController.PATH);
+    public void mouseReleasedOnReadersButton(MouseEvent mouseEvent) {
+        clickController.mouseReleasedOnImage(mouseEvent, readersButton, ListReadersController.PATH);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
+    public void mouseReleasedOnBooksButton(MouseEvent mouseEvent) {
+        clickController.mouseReleasedOnImage(mouseEvent, readersButton, ListBooksController.PATH);
     }
 }
