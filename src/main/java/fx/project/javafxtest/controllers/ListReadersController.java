@@ -1,26 +1,22 @@
 package fx.project.javafxtest.controllers;
 
 
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
-
 import fx.project.javafxtest.animations.Shake;
 import fx.project.javafxtest.dao.ReadersDAO;
 import fx.project.javafxtest.models.Reader;
+import fx.project.javafxtest.util.MailSender;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MultipleSelectionModel;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class ListReadersController implements Initializable {
 
@@ -73,8 +69,10 @@ public class ListReadersController implements Initializable {
         clickController.mouseReleasedOnImage(mouseEvent, homeButton, MainAppController.PATH);
     }
 
-    public void sendNotice(MouseEvent mouseEvent) {
-        if (selectedReader != null) System.out.println(selectedReader); //emailSender.notice();
+    public void sendNotice(MouseEvent mouseEvent) throws IOException {
+        if (selectedReader != null) new MailSender().sendMail("Напоминание о сдаче книги",
+                "Здравствуйте, " + selectedReader.getName() + ". Напоминаем вам о необходимости своевременно сдавать книги в вбибиотеку. " +
+                        "Сейчас у вас в пользовании с истёкшим сроком: " + selectedReader.getBooks(), selectedReader.getEmail());
         else new Shake(sendNotice).playAnim();
     }
 }
