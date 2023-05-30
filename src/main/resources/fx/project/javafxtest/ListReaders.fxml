@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.project.javafxtest.controllers.ListReadersController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.project.javafxtest.controllers.ListReadersController">
     <children>
         <AnchorPane layoutY="59.0" prefHeight="341.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;">
          <children>
@@ -19,7 +19,7 @@
             </Label>
             <ImageView fx:id="sendNotice" fitHeight="70.0" fitWidth="103.0" layoutX="623.0" layoutY="272.0" onMouseReleased="#sendNotice" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../assets/2759679.png" />
+                  <Image url="@../../../assets/2310155.png" />
                </image>
             </ImageView>
             <Label fx:id="textTopLabel" layoutX="179.0" prefHeight="52.0" prefWidth="343.0" text="Читатели с просроченными книгами">
@@ -33,14 +33,14 @@
                 <Font name="Arial" size="40.0" />
             </font>
         </Label>
-      <ImageView fx:id="homeButton" fitHeight="58.0" fitWidth="66.0" layoutX="637.0" layoutY="2.0" onMouseReleased="#mouseReleasedHomeButton" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="homeButton" fitHeight="58.0" fitWidth="66.0" layoutX="637.0" layoutY="2.0" onMouseReleased="#mouseReleasedHomeButton" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../assets/678125.png" />
+            <Image url="@../../../assets/793790.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="addNewReaderButton" fitHeight="70.0" fitWidth="70.0" layoutX="572.0" onMouseReleased="#mouseReleasedAddButton" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="addNewReaderButton" fitHeight="58.0" fitWidth="58.0" layoutX="570.0" layoutY="2.0" onMouseReleased="#mouseReleasedAddButton" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../assets/7065750.png" />
+            <Image url="@../../../assets/9349754.png" />
          </image>
       </ImageView>
     </children>

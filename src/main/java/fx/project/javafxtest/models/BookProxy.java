@@ -2,6 +2,7 @@ package fx.project.javafxtest.models;
 
 import javafx.beans.property.SimpleStringProperty;
 
+import java.util.Date;
 import java.text.SimpleDateFormat;
 
 public class BookProxy {
@@ -14,9 +15,10 @@ public class BookProxy {
     public BookProxy(Book book) {
         title = new SimpleStringProperty(book.getTitle());
         author = new SimpleStringProperty(book.getAuthor());
-        reader = new SimpleStringProperty(book.getReader().getName() + " " + book.getReader().getSurname());
-        String date = new SimpleDateFormat("yyyy-MM-dd").format(book.getSubmission_date());
-        submissionDate = new SimpleStringProperty(date);
+        reader = book.getReader().getName() == null ? new SimpleStringProperty("В библиотеке") : new SimpleStringProperty(book.getReader().getName() + book.getReader().getSurname());
+        Date date = book.getSubmission_date();
+        String dateString = date == null ? "В библиотеке" : new SimpleDateFormat("yyyy-MM-dd").format(date);
+        submissionDate = new SimpleStringProperty(dateString);
     }
 
     public String getTitle() {

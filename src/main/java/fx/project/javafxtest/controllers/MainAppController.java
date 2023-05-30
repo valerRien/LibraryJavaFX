@@ -45,4 +45,8 @@ public class MainAppController implements Initializable {
     public void mouseReleasedOnBooksButton(MouseEvent mouseEvent) {
         clickController.mouseReleasedOnImage(mouseEvent, readersButton, ListBooksController.PATH);
     }
+
+    public void mouseReleasedOnSettingsButton(MouseEvent mouseEvent) {
+        clickController.mouseReleasedOnImage(mouseEvent, settingsButton, ChangeLoginAndPasswordController.PATH);
+    }
 }

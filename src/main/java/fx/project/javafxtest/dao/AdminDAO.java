@@ -1,7 +1,6 @@
 package fx.project.javafxtest.dao;
 
 import fx.project.javafxtest.config.ConfigDB;
-import fx.project.javafxtest.models.Admin;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,4 +33,19 @@ public class AdminDAO {
         return result;
     }
 
+    public int verify(String oldLogin, String oldPassword) throws SQLException {
+        ResultSet resultSet = passAuthorization(oldLogin, oldPassword);
+        if (resultSet.next()) return resultSet.getInt("ID");
+        else return -1;
+    }
+
+    public void updateAdmin(int adminId, String newLogin, String newPassword) throws SQLException {
+        String query = "UPDATE ADMIN SET LOGIN=?, PASSWORD=? WHERE ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, newLogin);
+        statement.setString(2, newPassword);
+        statement.setInt(3, adminId);
+
+        statement.executeUpdate();
+    }
 }

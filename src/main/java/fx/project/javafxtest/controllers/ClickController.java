@@ -1,9 +1,11 @@
 package fx.project.javafxtest.controllers;
 
+import fx.project.javafxtest.FXApp;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -32,6 +34,8 @@ public class ClickController {
             throw new RuntimeException(e);
         }
         Stage stage = new Stage();
+        stage.setTitle("Библиотека");
+        stage.getIcons().add(new Image(FXApp.class.getResourceAsStream("/assets/999135.png")));
         stage.setScene(new Scene(root));
         stage.show();
     }
