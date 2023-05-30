@@ -1,19 +1,19 @@
 package fx.project.javafxtest.controllers;
 
+import fx.project.javafxtest.animations.Shake;
+import fx.project.javafxtest.dao.AdminDAO;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import fx.project.javafxtest.animations.Shake;
-import fx.project.javafxtest.dao.AdminDAO;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.layout.*;
-
-public class AuthorizationController {
+public class AuthorizationController implements Initializable {
 
     private AdminDAO adminDAO = new AdminDAO();
     private ClickController clickController = new ClickController();
@@ -39,8 +39,12 @@ public class AuthorizationController {
     public AuthorizationController() throws Exception {
     }
 
-    @FXML
-    void initialize() {
+    private boolean passAuthorization(String login, String password) throws SQLException {
+        return adminDAO.passAuthorization(login, password).next();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         signInButton.setOnAction(actionEvent -> {
             String login = loginField.getText().trim();
             String password = passwordField.getText().trim();
@@ -56,10 +60,5 @@ public class AuthorizationController {
             }
         });
     }
-
-    private boolean passAuthorization(String login, String password) throws SQLException {
-        return adminDAO.passAuthorization(login, password).next();
-    }
-
 }
 
