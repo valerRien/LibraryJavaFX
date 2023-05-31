@@ -1,6 +1,7 @@
 package fx.project.javafxtest.controllers;
 
 
+import fx.project.javafxtest.FXApp;
 import fx.project.javafxtest.animations.Shake;
 import fx.project.javafxtest.dao.ReadersDAO;
 import fx.project.javafxtest.models.Reader;
@@ -21,9 +22,8 @@ import java.util.ResourceBundle;
 
 public class ListReadersController implements Initializable {
 
-    public static final String PATH = "/fx/project/javafxtest/ListReaders.fxml";
-    private ClickController clickController = new ClickController();
-    private ReadersDAO readersDAO = new ReadersDAO();
+    private final FXApp sceneController = new FXApp();
+    private final ReadersDAO readersDAO = new ReadersDAO();
     private Reader selectedReader = null;
     @FXML
     private ResourceBundle resources;
@@ -74,8 +74,8 @@ public class ListReadersController implements Initializable {
         selectedReader = listView.getSelectionModel().getSelectedItem();
     }
 
-    public void mouseReleasedHomeButton(MouseEvent mouseEvent) {
-        clickController.mouseReleasedOnImage(mouseEvent, homeButton, MainAppController.PATH);
+    public void mouseReleasedHomeButton(MouseEvent mouseEvent) throws IOException {
+        sceneController.switchToSceneMainAppFrame(mouseEvent);
     }
 
     public void sendNotice(MouseEvent mouseEvent) throws IOException {
@@ -86,8 +86,8 @@ public class ListReadersController implements Initializable {
         else new Shake(sendNotice).playAnim();
     }
 
-    public void mouseReleasedAddButton(MouseEvent mouseEvent) {
-        clickController.mouseReleasedOnImage(mouseEvent, addNewReaderButton, NewReaderController.PATH);
+    public void mouseReleasedAddButton(MouseEvent mouseEvent) throws IOException {
+        sceneController.switchToSceneNewReader(mouseEvent);
     }
 }
 

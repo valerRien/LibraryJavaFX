@@ -73,11 +73,13 @@ public class BookDAO {
         List<Book> bookList = new ArrayList<>();
         while (resultSet.next()) {
             Book book = new Book();
+            book.setId(resultSet.getInt("books.id"));
             book.setTitle(resultSet.getString("title"));
             book.setAuthor(resultSet.getString("author"));
             book.setSubmission_date(resultSet.getDate("submission_date"));
 
             Reader reader = new Reader();
+            reader.setId(resultSet.getInt("readers.id"));
             reader.setName(resultSet.getString("name"));
             reader.setSurname(resultSet.getString("surname"));
 

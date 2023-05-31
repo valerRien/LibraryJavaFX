@@ -1,19 +1,20 @@
 package fx.project.javafxtest.controllers;
 
+import fx.project.javafxtest.FXApp;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class MainAppController implements Initializable {
 
-    public static final String PATH = "/fx/project/javafxtest/MainAppFrame.fxml";
-
-    private final ClickController clickController = new ClickController();
-
+    private final FXApp sceneController = new FXApp();
     @FXML
     private ResourceBundle resources;
 
@@ -30,11 +31,16 @@ public class MainAppController implements Initializable {
     private ImageView settingsButton;
 
     @FXML
-    void initialize() {
-    }
+    private TextField findReader;
 
-    public void mouseReleasedOnReadersButton(MouseEvent mouseEvent) {
-        clickController.mouseReleasedOnImage(mouseEvent, readersButton, ListReadersController.PATH);
+    @FXML
+    private ImageView searchForBookButton;
+
+    @FXML
+    private ImageView searchForReaderButton;
+
+    public void mouseReleasedOnReadersButton(MouseEvent mouseEvent) throws IOException {
+        sceneController.switchToSceneListReaders(mouseEvent);
     }
 
     @Override
@@ -42,11 +48,20 @@ public class MainAppController implements Initializable {
 
     }
 
-    public void mouseReleasedOnBooksButton(MouseEvent mouseEvent) {
-        clickController.mouseReleasedOnImage(mouseEvent, readersButton, ListBooksController.PATH);
+    public void mouseReleasedOnBooksButton(MouseEvent mouseEvent) throws IOException {
+        sceneController.switchToSceneListBooks(mouseEvent);
     }
 
-    public void mouseReleasedOnSettingsButton(MouseEvent mouseEvent) {
-        clickController.mouseReleasedOnImage(mouseEvent, settingsButton, ChangeLoginAndPasswordController.PATH);
+    public void mouseReleasedOnSettingsButton(MouseEvent mouseEvent) throws IOException {
+        sceneController.switchToSceneChangeLoginAndPassword(mouseEvent);
+    }
+
+    public void searchForBooks(MouseEvent mouseEvent) throws Exception {
+
+    }
+
+    public void searchForReaders(MouseEvent mouseEvent) throws IOException, SQLException {
+        sceneController.switchToSceneListReadersFromSearch(mouseEvent, findReader.getText());
     }
 }
+

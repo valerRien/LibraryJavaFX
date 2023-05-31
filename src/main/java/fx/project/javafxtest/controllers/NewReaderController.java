@@ -1,5 +1,6 @@
 package fx.project.javafxtest.controllers;
 
+import fx.project.javafxtest.FXApp;
 import fx.project.javafxtest.dao.ReadersDAO;
 import fx.project.javafxtest.models.Reader;
 import javafx.event.ActionEvent;
@@ -11,17 +12,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class NewReaderController implements Initializable {
 
-    public static final String PATH = "/fx/project/javafxtest/NewReader.fxml";
-
-    private ReadersDAO readersDAO = new ReadersDAO();
-
-    private final ClickController clickController = new ClickController();
+    private final FXApp sceneController = new FXApp();
+    private final ReadersDAO readersDAO = new ReadersDAO();
 
     @FXML
     private ResourceBundle resources;
@@ -56,21 +55,11 @@ public class NewReaderController implements Initializable {
     public NewReaderController() throws Exception {
     }
 
-    @FXML
-    void initialize(){
-
-    }
-
     private Reader getReader() {
         return new Reader(nameField.getText(), surnameField.getText(), emailField.getText(), phoneNumberField.getText(),
                 manField.isSelected()?"Муж":womanField.isSelected()?"Жен":"н/д"
                 );
     }
-
-    public void mouseReleased(MouseEvent mouseEvent) {
-        clickController.mouseReleasedOnImage(mouseEvent, homeButton, MainAppController.PATH);
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addButton.setOnAction(actionEvent -> {
@@ -79,9 +68,15 @@ public class NewReaderController implements Initializable {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            clickController.mouserReleasedOnButton(addButton, ListReadersController.PATH);
+
         });
     }
 
-    public void getGender(ActionEvent actionEvent) {}
+    public void getGender(ActionEvent actionEvent) {
+
+    }
+
+    public void mouseReleasedOnHomeButton(MouseEvent mouseEvent) throws IOException {
+        sceneController.switchToSceneMainAppFrame(mouseEvent);
+    }
 }

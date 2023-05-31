@@ -1,5 +1,6 @@
 package fx.project.javafxtest.controllers;
 
+import fx.project.javafxtest.FXApp;
 import fx.project.javafxtest.dao.BookDAO;
 import fx.project.javafxtest.models.BookProxy;
 import javafx.collections.FXCollections;
@@ -12,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -19,9 +21,8 @@ import java.util.ResourceBundle;
 
 public class ListBooksController implements Initializable {
 
-    public static final String PATH = "/fx/project/javafxtest/ListBooks.fxml";
-    private ClickController clickController = new ClickController();
-    private BookDAO bookDAO = new BookDAO();
+    private final FXApp sceneController = new FXApp();
+    private final BookDAO bookDAO = new BookDAO();
 
     @FXML
     private ResourceBundle resources;
@@ -54,8 +55,8 @@ public class ListBooksController implements Initializable {
     }
 
     @FXML
-    void mouseReleasedHomeButton(MouseEvent event) {
-        clickController.mouseReleasedOnImage(event, homeButton, MainAppController.PATH);
+    void mouseReleasedHomeButton(MouseEvent event) throws IOException {
+        sceneController.switchToSceneMainAppFrame(event);
     }
 
     @Override
@@ -77,8 +78,8 @@ public class ListBooksController implements Initializable {
         booksTable.setItems(proxyBooksList);
     }
 
-    public void mouseReleasedAddBookButton(MouseEvent mouseEvent) {
-        clickController.mouseReleasedOnImage(mouseEvent, addBookButton, AddBookController.PATH);
+    public void mouseReleasedAddBookButton(MouseEvent mouseEvent) throws IOException {
+        sceneController.switchToSceneAddBook(mouseEvent);
     }
 }
 

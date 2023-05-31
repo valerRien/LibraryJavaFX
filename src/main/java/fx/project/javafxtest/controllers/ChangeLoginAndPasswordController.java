@@ -1,5 +1,6 @@
 package fx.project.javafxtest.controllers;
 
+import fx.project.javafxtest.FXApp;
 import fx.project.javafxtest.animations.Shake;
 import fx.project.javafxtest.dao.AdminDAO;
 import javafx.fxml.FXML;
@@ -10,16 +11,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ChangeLoginAndPasswordController implements Initializable {
 
-    public static final String PATH = "/fx/project/javafxtest/ChangeLoginAndPassword.fxml";
-    private ClickController clickController = new ClickController();
+    private final FXApp sceneController = new FXApp();
 
-    private AdminDAO adminDAO = new AdminDAO();
+    private final AdminDAO adminDAO = new AdminDAO();
     @FXML
     private ResourceBundle resources;
 
@@ -72,7 +73,7 @@ public class ChangeLoginAndPasswordController implements Initializable {
                     }
 
                     adminDAO.updateAdmin(adminId, newLogin, newPassword);
-                    clickController.mouserReleasedOnButton(saveEditing, MainAppController.PATH);
+
                 }
 
             } catch (SQLException e) {
@@ -82,8 +83,8 @@ public class ChangeLoginAndPasswordController implements Initializable {
         });
     }
 
-    public void mouseReleasedHomeButton(MouseEvent mouseEvent) {
-        clickController.mouseReleasedOnImage(mouseEvent, homeButton, MainAppController.PATH);
+    public void mouseReleasedHomeButton(MouseEvent mouseEvent) throws IOException {
+        sceneController.switchToSceneMainAppFrame(mouseEvent);
     }
 
     private String getOldLogin() {

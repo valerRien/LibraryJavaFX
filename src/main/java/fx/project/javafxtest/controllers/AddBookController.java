@@ -1,5 +1,6 @@
 package fx.project.javafxtest.controllers;
 
+import fx.project.javafxtest.FXApp;
 import fx.project.javafxtest.dao.BookDAO;
 import fx.project.javafxtest.models.Book;
 import javafx.fxml.FXML;
@@ -9,15 +10,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddBookController implements Initializable {
-    public static final String PATH = "/fx/project/javafxtest/AddBook.fxml";
 
-    private ClickController clickController = new ClickController();
-    private BookDAO bookDAO = new BookDAO();
+    private final BookDAO bookDAO = new BookDAO();
+    private final FXApp sceneController = new FXApp();
     @FXML
     private ResourceBundle resources;
 
@@ -43,8 +44,8 @@ public class AddBookController implements Initializable {
     }
 
 
-    public void mouseReleasedOnHomeButton(MouseEvent mouseEvent) {
-        clickController.mouseReleasedOnImage(mouseEvent, homeButton, MainAppController.PATH);
+    public void mouseReleasedOnHomeButton(MouseEvent mouseEvent) throws IOException {
+        sceneController.switchToSceneMainAppFrame(mouseEvent);
     }
 
     @Override
@@ -56,7 +57,7 @@ public class AddBookController implements Initializable {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            clickController.mouserReleasedOnButton(addButton, ListBooksController.PATH);
+
         });
     }
 
