@@ -1,6 +1,7 @@
 package fx.project.javafxtest.controllers;
 
 import fx.project.javafxtest.FXApp;
+import fx.project.javafxtest.animations.Shake;
 import fx.project.javafxtest.dao.BookDAO;
 import fx.project.javafxtest.dao.ReaderDAO;
 import fx.project.javafxtest.models.Book;
@@ -85,7 +86,10 @@ public class ShowReaderInfoController implements Initializable {
     }
 
     public void releaseBook(ActionEvent event) throws IOException, SQLException {
-        bookDAO.releaseBook(selectedBook.getId(), currentReader.getId());
-        sceneController.switchToSceneShowReaderInfo(event, DataKeeper.getInstance().getIntData());
+        if (selectedBook == null) new Shake(releaseBook).playAnim();
+        else {
+            bookDAO.releaseBook(selectedBook.getId(), currentReader.getId());
+            sceneController.switchToSceneShowReaderInfo(event, DataKeeper.getInstance().getIntData());
+        }
     }
 }
