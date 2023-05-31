@@ -1,7 +1,7 @@
 package fx.project.javafxtest.controllers;
 
 import fx.project.javafxtest.FXApp;
-import fx.project.javafxtest.dao.ReadersDAO;
+import fx.project.javafxtest.dao.ReaderDAO;
 import fx.project.javafxtest.models.Reader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 public class NewReaderController implements Initializable {
 
     private final FXApp sceneController = new FXApp();
-    private final ReadersDAO readersDAO = new ReadersDAO();
+    private final ReaderDAO readerDAO = new ReaderDAO();
 
     @FXML
     private ResourceBundle resources;
@@ -62,14 +62,7 @@ public class NewReaderController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        addButton.setOnAction(actionEvent -> {
-            try {
-                readersDAO.addReader(getReader());
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
 
-        });
     }
 
     public void getGender(ActionEvent actionEvent) {
@@ -78,5 +71,14 @@ public class NewReaderController implements Initializable {
 
     public void mouseReleasedOnHomeButton(MouseEvent mouseEvent) throws IOException {
         sceneController.switchToSceneMainAppFrame(mouseEvent);
+    }
+
+    public void addReader(MouseEvent event) throws IOException, SQLException {
+        try {
+            readerDAO.addReader(getReader());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        sceneController.switchToSceneListReadersFromSearch(event, "");
     }
 }
