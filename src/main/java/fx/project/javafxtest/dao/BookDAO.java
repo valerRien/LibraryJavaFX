@@ -57,10 +57,11 @@ public class BookDAO {
     }
 
     public void assignBook(Reader reader, Book book) throws SQLException {
-        String query = "UPDATE TABLE BOOKS SET PERSON_ID=? WHERE ID=?";
+        String query = "UPDATE TABLE BOOKS SET PERSON_ID=?, SUBMISSION_DATE=? WHERE ID=?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setInt(1, reader.getId());
-        statement.setInt(2, book.getId());
+        statement.setDate(2, new Date(System.currentTimeMillis()));
+        statement.setInt(3, book.getId());
 
         statement.executeUpdate();
     }
@@ -97,5 +98,31 @@ public class BookDAO {
             proxyBooksList.add(new BookProxy(book));
         }
         return proxyBooksList;
+    }
+
+    public List<Book> getBooksListByReaderId(int readerId) throws SQLException {
+        String query = "SELECT * FROM BOOKS WHERE READER_ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, readerId);
+        ResultSet resultSet = statement.executeQuery();
+        List<Book> booksList = new ArrayList<>();
+        while (resultSet.next()) {
+            Book book = new Book();
+            book.setId(resultSet.getInt("id"));
+            book.setTitle(resultSet.getString("title"));
+            book.setAuthor(resultSet.getString("author"));
+            book.setYearOfProduction(Integer.parseInt(resultSet.getString("year_of_production")));
+            book.setSubmission_date(resultSet.getDate("submission_date"));
+            booksList.add(book);
+        }
+        return booksList;
+    }
+
+    public void releaseBook(int bookId, int readerId) throws SQLException {
+        String query = "UPDATE BOOKS SET READER_ID=null, PREVIOUS_READER=? WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, readerId);
+        statement.setInt(2, bookId);
+        statement.executeUpdate();
     }
 }
