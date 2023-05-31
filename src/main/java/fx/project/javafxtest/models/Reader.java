@@ -1,5 +1,7 @@
 package fx.project.javafxtest.models;
 
+import java.util.List;
+
 public class Reader {
     private int id;
     private String name;
@@ -8,6 +10,8 @@ public class Reader {
     private String phoneNumber;
     private String gender;
     private Book book;
+
+    private List<Book> booksList;
 
     public Reader() {
     }
@@ -76,9 +80,17 @@ public class Reader {
         this.book = book;
     }
 
+    public List<Book> getBooksList() {
+        return booksList;
+    }
+
+    public void setBooksList(List<Book> booksList) {
+        this.booksList = booksList;
+    }
+
     @Override
     public String toString() {
-        return getName() + " " + getSurname() + " " + getPhoneNumber() +
+        return getName() + " " + getSurname() + " " + (getPhoneNumber() != null? getPhoneNumber():"") +
                 (getBook() != null? " " + getBook().getTitle() + " " + getBook().getSubmission_date():"");
     }
 
