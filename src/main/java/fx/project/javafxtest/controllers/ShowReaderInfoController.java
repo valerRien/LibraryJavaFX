@@ -53,6 +53,9 @@ public class ShowReaderInfoController implements Initializable {
     @FXML
     private Button releaseBook;
 
+    @FXML
+    private Label allBookReturned;
+
     private Book selectedBook;
 
     private Reader currentReader;
@@ -72,6 +75,8 @@ public class ShowReaderInfoController implements Initializable {
         }
         List<Book> listView = booksList.getItems();
         listView.addAll(listOfBooks);
+        if (listOfBooks.isEmpty()) allBookReturned.setText("Все сдано");
+        else allBookReturned.setText("");
         booksList.getSelectionModel().selectedItemProperty().addListener(this::selectionChanged);
         nameField.setText(currentReader.getName());
         surnameField.setText(currentReader.getSurname());
