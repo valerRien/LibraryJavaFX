@@ -2,7 +2,7 @@ package fx.project.javafxtest.controllers;
 
 import fx.project.javafxtest.FXApp;
 import fx.project.javafxtest.animations.Shake;
-import fx.project.javafxtest.dao.ReadersDAO;
+import fx.project.javafxtest.dao.ReaderDAO;
 import fx.project.javafxtest.models.Reader;
 import fx.project.javafxtest.util.DataKeeper;
 import javafx.beans.value.ObservableValue;
@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 public class ListReadersFromSearchController implements Initializable {
 
     private final FXApp sceneController = new FXApp();
-    private final ReadersDAO readersDAO = new ReadersDAO();
+    private final ReaderDAO readerDAO = new ReaderDAO();
     @FXML
     private ResourceBundle resources;
 
@@ -43,7 +43,7 @@ public class ListReadersFromSearchController implements Initializable {
     @FXML
     private Label regexSample;
 
-    private List<Reader> foundReaders = readersDAO.findReadersLike(DataKeeper.getInstance().getStringData());
+    private List<Reader> foundReaders = readerDAO.findReadersLike(DataKeeper.getInstance().getStringData());
 
     public ListReadersFromSearchController() throws Exception {
     }
@@ -60,8 +60,6 @@ public class ListReadersFromSearchController implements Initializable {
     }
 
     private void selectionChanged(ObservableValue<? extends Reader> observable, Reader oldValue, Reader newValue) {
-        Reader selectedItem = searchResultTable.getSelectionModel().getSelectedItem();
-        String getSelectedItem = selectedItem.showNameSurnameEmail();
         selectedReader = searchResultTable.getSelectionModel().getSelectedItem();
     }
 
@@ -71,6 +69,10 @@ public class ListReadersFromSearchController implements Initializable {
 
     public void mouseReleasedOnPersonInfoButton(MouseEvent mouseEvent) throws SQLException, IOException {
         if (selectedReader == null) new Shake(goToPersonProfileButton).playAnim();
-        sceneController.switchToSceneShowReaderInfo(mouseEvent, selectedReader.getId());
+        else sceneController.switchToSceneShowReaderInfo(mouseEvent, selectedReader.getId());
+    }
+
+    public void mouseReleasedAddButton(MouseEvent event) throws IOException {
+        sceneController.switchToSceneNewReader(event);
     }
 }

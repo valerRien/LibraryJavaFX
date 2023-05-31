@@ -28,7 +28,7 @@
                         <Font size="16.0" />
                     </font>
                 </TextField>
-                <Button fx:id="addButton" layoutX="304.0" layoutY="241.0" mnemonicParsing="false" text="Добавить">
+                <Button fx:id="addButton" layoutX="304.0" layoutY="241.0" mnemonicParsing="false" onAction="#addBook" text="Добавить">
                     <font>
                         <Font size="16.0" />
                     </font>

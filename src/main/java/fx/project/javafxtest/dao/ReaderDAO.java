@@ -10,13 +10,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadersDAO {
+public class ReaderDAO {
 
     private BookDAO bookDAO = new BookDAO();
 
     private Connection connection = new ConfigDB().getConnection();
 
-    public ReadersDAO() throws Exception {
+    public ReaderDAO() throws Exception {
     }
 
     public void addReader(Reader reader) throws SQLException {

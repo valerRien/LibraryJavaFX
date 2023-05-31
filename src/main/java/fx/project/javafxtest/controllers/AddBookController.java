@@ -3,6 +3,7 @@ package fx.project.javafxtest.controllers;
 import fx.project.javafxtest.FXApp;
 import fx.project.javafxtest.dao.BookDAO;
 import fx.project.javafxtest.models.Book;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -50,15 +51,7 @@ public class AddBookController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        addButton.setOnAction(actionEvent -> {
-            Book book = getBook();
-            try {
-                bookDAO.addBook(book);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
 
-        });
     }
 
     private Book getBook() {
@@ -67,6 +60,16 @@ public class AddBookController implements Initializable {
         book.setAuthor(authorField.getText());
         book.setYearOfProduction(Integer.parseInt(yearOfProductionField.getText()));
         return book;
+    }
+
+    public void addBook(ActionEvent event) throws IOException {
+        Book book = getBook();
+        try {
+            bookDAO.addBook(book);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        sceneController.switchToSceneListBooks(event);
     }
 }
 

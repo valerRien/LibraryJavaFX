@@ -91,6 +91,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return title + ", " + author + ", " + yearOfProduction;
+        return title + ", " + author + ", " + yearOfProduction + " " + (submission_date != null ? submission_date : "");
     }
 }

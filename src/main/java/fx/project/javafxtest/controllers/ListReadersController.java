@@ -3,7 +3,7 @@ package fx.project.javafxtest.controllers;
 
 import fx.project.javafxtest.FXApp;
 import fx.project.javafxtest.animations.Shake;
-import fx.project.javafxtest.dao.ReadersDAO;
+import fx.project.javafxtest.dao.ReaderDAO;
 import fx.project.javafxtest.models.Reader;
 import fx.project.javafxtest.util.MailSender;
 import javafx.beans.value.ObservableValue;
@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 public class ListReadersController implements Initializable {
 
     private final FXApp sceneController = new FXApp();
-    private final ReadersDAO readersDAO = new ReadersDAO();
+    private final ReaderDAO readerDAO = new ReaderDAO();
     private Reader selectedReader = null;
     @FXML
     private ResourceBundle resources;
@@ -33,9 +33,6 @@ public class ListReadersController implements Initializable {
 
     @FXML
     private ImageView homeButton;
-
-    @FXML
-    public ImageView addNewReaderButton;
 
     @FXML
     private ListView<Reader> listView;
@@ -58,7 +55,7 @@ public class ListReadersController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<Reader> readers = null;
         try {
-            readers = readersDAO.getTimeOutReaders();
+            readers = readerDAO.getTimeOutReaders();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -84,10 +81,6 @@ public class ListReadersController implements Initializable {
                         "Сейчас у вас в пользовании с истёкшим сроком: " + selectedReader.getBook() + ", которую вы взяли " +
                         selectedReader.getBook().getSubmission_date(), selectedReader.getEmail());
         else new Shake(sendNotice).playAnim();
-    }
-
-    public void mouseReleasedAddButton(MouseEvent mouseEvent) throws IOException {
-        sceneController.switchToSceneNewReader(mouseEvent);
     }
 }
 
