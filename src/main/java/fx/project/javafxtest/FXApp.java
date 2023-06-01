@@ -85,7 +85,7 @@ public class FXApp extends Application {
     }
 
     public void switchToSceneListReadersFromSearch(MouseEvent event, String regex) throws IOException, SQLException {
-        DataKeeper.getInstance().setStringData(regex);
+        DataKeeper.getInstance().setReaderStringData(regex);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fx/project/javafxtest/ListReadersFromSearch.fxml"));
         Parent root = loader.load();
@@ -104,12 +104,12 @@ public class FXApp extends Application {
     }
 
     public void switchToSceneShowReaderInfo(MouseEvent event, int readerId) throws IOException {
-        DataKeeper.getInstance().setIntData(readerId);
+        DataKeeper.getInstance().setReaderIntData(readerId);
         switchScene("/fx/project/javafxtest/ShowReaderInfo.fxml", event);
     }
 
     public void switchToSceneShowReaderInfo(ActionEvent event, int readerId) throws IOException {
-        DataKeeper.getInstance().setIntData(readerId);
+        DataKeeper.getInstance().setReaderIntData(readerId);
         switchScene("/fx/project/javafxtest/ShowReaderInfo.fxml", event);
     }
 
@@ -122,6 +122,17 @@ public class FXApp extends Application {
 
     private void switchScene(String scenePath, ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(scenePath));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+    }
+
+    public void switchToSceneEditReader(MouseEvent event, int readerId) throws IOException {
+        DataKeeper.getInstance().setReaderIntData(readerId);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fx/project/javafxtest/EditReader.fxml"));
+        Parent root = loader.load();
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

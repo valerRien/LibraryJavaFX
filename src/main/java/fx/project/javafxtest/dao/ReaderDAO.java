@@ -62,6 +62,27 @@ public class ReaderDAO {
         resultSet.next();
         reader.setName(resultSet.getString("name"));
         reader.setSurname(resultSet.getString("surname"));
+        reader.setEmail(resultSet.getString("email"));
+        reader.setPhoneNumber(resultSet.getString("phone_number"));
         return reader;
+    }
+
+    public void deleteReaderById(int id) throws SQLException {
+        String query = "DELETE FROM READERS WHERE ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, id);
+        statement.executeUpdate();
+    }
+
+    public void updateReader(int readerIntData, Reader reader) throws SQLException {
+        String query = "UPDATE READERS SET NAME=?, SURNAME=?, EMAIL=?, PHONE_NUMBER=? WHERE ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, reader.getName());
+        statement.setString(2, reader.getSurname());
+        statement.setString(3, reader.getEmail());
+        statement.setString(4, reader.getPhoneNumber());
+        statement.setInt(5, readerIntData);
+
+        statement.executeUpdate();
     }
 }

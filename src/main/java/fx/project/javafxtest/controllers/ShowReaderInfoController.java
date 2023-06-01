@@ -68,8 +68,8 @@ public class ShowReaderInfoController implements Initializable {
         currentReader = null;
         List<Book> listOfBooks = null;
         try {
-            currentReader = readerDAO.findById(DataKeeper.getInstance().getIntData());
-            listOfBooks = bookDAO.getBooksListByReaderId(DataKeeper.getInstance().getIntData());
+            currentReader = readerDAO.findById(DataKeeper.getInstance().getReaderIntData());
+            listOfBooks = bookDAO.getBooksListByReaderId(DataKeeper.getInstance().getReaderIntData());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -94,7 +94,11 @@ public class ShowReaderInfoController implements Initializable {
         if (selectedBook == null) new Shake(releaseBook).playAnim();
         else {
             bookDAO.releaseBook(selectedBook.getId(), currentReader.getId());
-            sceneController.switchToSceneShowReaderInfo(event, DataKeeper.getInstance().getIntData());
+            sceneController.switchToSceneShowReaderInfo(event, DataKeeper.getInstance().getReaderIntData());
         }
+    }
+
+    public void editReader(MouseEvent event) throws IOException, SQLException {
+        sceneController.switchToSceneEditReader(event, DataKeeper.getInstance().getReaderIntData());
     }
 }
