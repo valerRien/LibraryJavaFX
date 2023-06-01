@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.project.javafxtest.controllers.EditReaderController">
+
+    <children>
+        <AnchorPane layoutY="59.0" prefHeight="341.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <TextField fx:id="surnameField" layoutX="65.0" layoutY="89.0" prefHeight="35.0" prefWidth="264.0" promptText="Фамилия">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="emailField" layoutX="65.0" layoutY="160.0" prefHeight="35.0" prefWidth="264.0" promptText="Email">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="nameField" layoutX="372.0" layoutY="89.0" prefHeight="35.0" prefWidth="264.0" promptText="Имя">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="phoneNumberField" layoutX="372.0" layoutY="160.0" prefHeight="35.0" prefWidth="264.0" promptText="Номер телефона">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </TextField>
+                <Button fx:id="saveButton" layoutX="240.0" layoutY="251.0" mnemonicParsing="false" onMouseReleased="#saveEditing" text="Сохранить">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+            <Button fx:id="deleteButton" layoutX="360.0" layoutY="251.0" mnemonicParsing="false" onMouseReleased="#deleteReader" prefHeight="35.0" prefWidth="100.0" text="Удалить">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            </children></AnchorPane>
+        <Label layoutX="14.0" prefHeight="70.0" prefWidth="301.0" text="Библиотека №3">
+            <font>
+                <Font name="Arial" size="40.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="homeButton" fitHeight="58.0" fitWidth="66.0" layoutX="637.0" layoutY="2.0" onMouseReleased="#mouseReleasedOnHomeButton" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../assets/793790.png" />
+            </image>
+        </ImageView>
+    </children>
+
+</AnchorPane>
