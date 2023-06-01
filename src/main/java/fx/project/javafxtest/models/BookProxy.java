@@ -16,7 +16,7 @@ public class BookProxy {
         title = new SimpleStringProperty(book.getTitle());
         author = new SimpleStringProperty(book.getAuthor());
         reader = book.getReader().getName() == null ? new SimpleStringProperty("В библиотеке") : new SimpleStringProperty(book.getReader().getName() + " " + book.getReader().getSurname());
-        Date date = book.getSubmission_date();
+        Date date = book.getSubmissionDate();
         String dateString = date == null ? "В библиотеке" : new SimpleDateFormat("yyyy-MM-dd").format(date);
         submissionDate = new SimpleStringProperty(dateString);
     }

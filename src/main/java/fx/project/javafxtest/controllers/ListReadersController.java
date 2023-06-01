@@ -77,9 +77,9 @@ public class ListReadersController implements Initializable {
 
     public void sendNotice(MouseEvent mouseEvent) throws IOException {
         if (selectedReader != null) new MailSender().sendMail("Напоминание о сдаче книги",
-                "Здравствуйте, " + selectedReader.getName() + ". Напоминаем вам о необходимости своевременно сдавать книги в вбибиотеку. " +
-                        "Сейчас у вас в пользовании с истёкшим сроком: " + selectedReader.getBook() + ", которую вы взяли " +
-                        selectedReader.getBook().getSubmission_date(), selectedReader.getEmail());
+                "Здравствуйте, " + selectedReader.getName() + ". Напоминаем вам о необходимости своевременно сдавать книги в в библиотеку. " +
+                        "Сейчас у вас в пользовании с истёкшим сроком: " + selectedReader.getBook().getTitleAndAuthor() + ", которую вы взяли " +
+                        selectedReader.getBook().getSubmissionDate(), selectedReader.getEmail());
         else new Shake(sendNotice).playAnim();
     }
 }

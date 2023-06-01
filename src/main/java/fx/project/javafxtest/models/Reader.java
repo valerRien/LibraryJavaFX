@@ -91,7 +91,7 @@ public class Reader {
     @Override
     public String toString() {
         return getName() + " " + getSurname() + " " + (getPhoneNumber() != null? getPhoneNumber():"") +
-                (getBook() != null? " " + getBook().getTitle() + " " + getBook().getSubmission_date():"");
+                (getBook() != null? " " + getBook().getTitle() + " " + getBook().getSubmissionDate():"");
     }
 
     public String showNameSurnameEmail() {

@@ -5,14 +5,14 @@ import java.util.Date;
 public class Book {
 
     private int id;
-    private int reader_id;
+    private int readerId;
     private String title;
     private String author;
 
     private int yearOfProduction;
 
     private int previousReader;
-    private Date submission_date;
+    private Date submissionDate;
 
     private Reader reader;
 
@@ -41,12 +41,12 @@ public class Book {
         this.id = id;
     }
 
-    public int getReader_id() {
-        return reader_id;
+    public int getReaderId() {
+        return readerId;
     }
 
-    public void setReader_id(int reader_id) {
-        this.reader_id = reader_id;
+    public void setReaderId(int readerId) {
+        this.readerId = readerId;
     }
 
     public String getTitle() {
@@ -81,16 +81,20 @@ public class Book {
         this.previousReader = previousReader;
     }
 
-    public Date getSubmission_date() {
-        return submission_date;
+    public Date getSubmissionDate() {
+        return submissionDate;
     }
 
-    public void setSubmission_date(Date submission_date) {
-        this.submission_date = submission_date;
+    public void setSubmissionDate(Date submissionDate) {
+        this.submissionDate = submissionDate;
     }
 
     @Override
     public String toString() {
-        return title + ", " + author + ", " + yearOfProduction + " " + (submission_date != null ? submission_date : "");
+        return title + ", " + author + ", " + yearOfProduction + " " + (submissionDate != null ? submissionDate : "");
+    }
+
+    public String getTitleAndAuthor() {
+        return title + " (автор: " + author + ")";
     }
 }

@@ -34,6 +34,9 @@ public class MainAppController implements Initializable {
     private TextField findReader;
 
     @FXML
+    private TextField findBook;
+
+    @FXML
     private ImageView searchForBookButton;
 
     @FXML
@@ -57,7 +60,7 @@ public class MainAppController implements Initializable {
     }
 
     public void searchForBooks(MouseEvent mouseEvent) throws Exception {
-
+        sceneController.switchToSceneListBookFromSearch(mouseEvent, findBook.getText());
     }
 
     public void searchForReaders(MouseEvent mouseEvent) throws IOException, SQLException {

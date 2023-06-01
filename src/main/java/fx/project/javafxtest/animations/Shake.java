@@ -13,7 +13,7 @@ public class Shake {
         transition.setFromY(0f);
         transition.setByX(5f);
         transition.setByY(3f);
-        transition.setCycleCount(2);
+        transition.setCycleCount(3);
     }
 
     public void playAnim() {
