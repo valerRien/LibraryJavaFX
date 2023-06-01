@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.project.javafxtest.controllers.ListBooksFromSearchController">
+    <children>
+        <AnchorPane layoutY="59.0" prefHeight="341.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <ListView fx:id="searchResultTable" prefHeight="341.0" prefWidth="700.0" />
+            </children>
+        </AnchorPane>
+        <Label layoutX="14.0" prefHeight="70.0" prefWidth="301.0" text="Библиотека №3">
+            <font>
+                <Font name="Arial" size="40.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="homeButton" fitHeight="56.0" fitWidth="64.0" layoutX="637.0" layoutY="2.0" onMouseReleased="#mouseReleasedOnHomeButton" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../assets/HoneSceneLogo.png" />
+            </image>
+        </ImageView>
+      <ImageView fx:id="showBookInfo" fitHeight="56.0" fitWidth="54.0" layoutX="572.0" layoutY="6.0" onMouseReleased="#showBookInfo" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/BookInfoLogo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="addBook" fitHeight="60.0" fitWidth="68.0" layoutX="508.0" layoutY="-1.0" onMouseReleased="#addBook" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/5613638%20(1).png" />
+         </image>
+      </ImageView>
+
+    </children>
+</AnchorPane>

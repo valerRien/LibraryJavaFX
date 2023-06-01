@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.project.javafxtest.controllers.ShowBookInfoController">
+
+    <children>
+        <Label layoutX="14.0" prefHeight="70.0" prefWidth="301.0" text="Библиотека №3">
+            <font>
+                <Font name="Arial" size="40.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="homeButton" fitHeight="58.0" fitWidth="66.0" layoutX="637.0" layoutY="2.0" onMouseReleased="#mouseReleasedOnHomeButton" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../assets/HoneSceneLogo.png" />
+            </image>
+        </ImageView>
+        <AnchorPane layoutY="59.0" prefHeight="341.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <Label fx:id="titleField" layoutX="26.0" layoutY="27.0" prefHeight="38.0" prefWidth="644.0" text="название(из формы)">
+                    <font>
+                        <Font size="24.0" />
+                    </font></Label>
+                <Label fx:id="authorField" layoutX="26.0" layoutY="65.0" prefHeight="38.0" prefWidth="644.0" text="автор и год(из формы)">
+                    <font>
+                        <Font size="20.0" />
+                    </font></Label>
+                <Button fx:id="releaseOrAddBook" layoutX="299.0" layoutY="265.0" mnemonicParsing="false" onMouseReleased="#releaseOrAddBook" prefHeight="31.0" prefWidth="103.0" text="Сдать книгу">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Label fx:id="currentPlace" layoutX="29.0" layoutY="179.0" prefHeight="38.0" prefWidth="644.0" text="Сейчас читает:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="previousPlace" layoutX="29.0" layoutY="217.0" prefHeight="38.0" prefWidth="644.0" text="Предыдуший читатель:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ListView fx:id="listAllReaders" layoutX="26.0" layoutY="111.0" prefHeight="104.0" prefWidth="644.0" />
+            </children></AnchorPane>
+    </children>
+
+</AnchorPane>
