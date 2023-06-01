@@ -85,4 +85,21 @@ public class ReaderDAO {
 
         statement.executeUpdate();
     }
+
+    public List<Reader> getAllReaders() throws SQLException {
+        String query = "SELECT * FROM READERS";
+        PreparedStatement statement = connection.prepareStatement(query);
+        ResultSet resultSet = statement.executeQuery();
+        List<Reader> listOfAllReaders = new ArrayList<>();
+        while (resultSet.next()) {
+            Reader reader = new Reader();
+            reader.setName(resultSet.getString("name"));
+            reader.setSurname(resultSet.getString("surname"));
+            reader.setEmail(resultSet.getString("email"));
+            reader.setPhoneNumber(resultSet.getString("phone_number"));
+            reader.setId(resultSet.getInt("id"));
+            listOfAllReaders.add(reader);
+        }
+        return listOfAllReaders;
+    }
 }
