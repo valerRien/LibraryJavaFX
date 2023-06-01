@@ -3,8 +3,21 @@ package fx.project.javafxtest.util;
 public class DataKeeper {
 
     private static final DataKeeper instance = new DataKeeper();
-    private String stringData;
-    private int intData;
+    private String readerStringData;
+
+    private String bookStringData;
+
+
+    private int readerIntData;
+    private int bookIntData;
+
+    public int getBookIntData() {
+        return bookIntData;
+    }
+
+    public void setBookIntData(int bookIntData) {
+        this.bookIntData = bookIntData;
+    }
 
     private DataKeeper() {
     }
@@ -13,19 +26,27 @@ public class DataKeeper {
         return instance;
     }
 
-    public String getStringData() {
-        return stringData;
+    public String getReaderStringData() {
+        return readerStringData;
     }
 
-    public void setStringData(String stringData) {
-        this.stringData = stringData;
+    public void setReaderStringData(String readerStringData) {
+        this.readerStringData = readerStringData;
     }
 
-    public int getIntData() {
-        return intData;
+    public int getReaderIntData() {
+        return readerIntData;
     }
 
-    public void setIntData(int intData) {
-        this.intData = intData;
+    public void setReaderIntData(int readerIntData) {
+        this.readerIntData = readerIntData;
+    }
+
+    public String getBookStringData() {
+        return bookStringData;
+    }
+
+    public void setBookStringData(String bookStringData) {
+        this.bookStringData = bookStringData;
     }
 }

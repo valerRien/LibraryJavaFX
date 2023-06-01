@@ -43,7 +43,7 @@ public class ListReadersFromSearchController implements Initializable {
     @FXML
     private Label regexSample;
 
-    private List<Reader> foundReaders = readerDAO.findReadersLike(DataKeeper.getInstance().getStringData());
+    private List<Reader> foundReaders = readerDAO.findReadersLike(DataKeeper.getInstance().getReaderStringData());
 
     public ListReadersFromSearchController() throws Exception {
     }

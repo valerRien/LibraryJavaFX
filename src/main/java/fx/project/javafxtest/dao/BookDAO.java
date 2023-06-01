@@ -119,7 +119,7 @@ public class BookDAO {
     }
 
     public void releaseBook(int bookId, int readerId) throws SQLException {
-        String query = "UPDATE BOOKS SET READER_ID=null, PREVIOUS_READER=? WHERE id = ?";
+        String query = "UPDATE BOOKS SET READER_ID=null, PREVIOUS_READER=?,SUBMISSION_DATE=null  WHERE id = ?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setInt(1, readerId);
         statement.setInt(2, bookId);
