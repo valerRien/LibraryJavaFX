@@ -22,6 +22,9 @@ public class MainAppController implements Initializable {
     private URL location;
 
     @FXML
+    private ImageView lockButton;
+
+    @FXML
     private ImageView booksButton;
 
     @FXML
@@ -65,6 +68,10 @@ public class MainAppController implements Initializable {
 
     public void searchForReaders(MouseEvent mouseEvent) throws IOException, SQLException {
         sceneController.switchToSceneListReadersFromSearch(mouseEvent, findReader.getText());
+    }
+
+    public void lockApp(MouseEvent event) throws IOException {
+        sceneController.switchToSceneAuthorization(event);
     }
 }
 

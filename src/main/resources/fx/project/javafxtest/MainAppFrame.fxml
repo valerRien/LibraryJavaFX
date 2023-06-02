@@ -59,9 +59,9 @@
                 <Font name="Arial" size="40.0" />
             </font>
         </Label>
-      <ImageView fitHeight="64.0" fitWidth="69.0" layoutX="631.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="lockButton" fitHeight="64.0" fitWidth="69.0" layoutX="631.0" onMouseReleased="#lockApp" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../assets/200-2005246_19-security-padlock-icon-png-images-lock-icon.png" />
+            <Image url="@../../../assets/LockLogo.png" />
          </image>
       </ImageView>
     </children>

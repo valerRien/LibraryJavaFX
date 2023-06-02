@@ -34,12 +34,12 @@ public class BookDAO {
         while (resultSet.next()) {
             Book book = new Book();
             book.setId(resultSet.getInt("books.id"));
-            book.setReader_id(resultSet.getInt("reader_id"));
+            book.setReaderId(resultSet.getInt("reader_id"));
             book.setTitle(resultSet.getString("title"));
             book.setAuthor(resultSet.getString("author"));
             book.setId(resultSet.getInt("year_of_production"));
             book.setPreviousReader(resultSet.getInt("previous_reader"));
-            book.setSubmission_date(resultSet.getDate("submission_date"));
+            book.setSubmissionDate(resultSet.getDate("submission_date"));
 
             Reader reader = new Reader();
             reader.setId(resultSet.getInt("readers.id"));
@@ -57,7 +57,7 @@ public class BookDAO {
     }
 
     public void assignBook(Reader reader, Book book) throws SQLException {
-        String query = "UPDATE TABLE BOOKS SET PERSON_ID=?, SUBMISSION_DATE=? WHERE ID=?";
+        String query = "UPDATE BOOKS SET READER_ID=?, SUBMISSION_DATE=? WHERE ID=?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setInt(1, reader.getId());
         statement.setDate(2, new Date(System.currentTimeMillis()));
@@ -77,7 +77,7 @@ public class BookDAO {
             book.setId(resultSet.getInt("books.id"));
             book.setTitle(resultSet.getString("title"));
             book.setAuthor(resultSet.getString("author"));
-            book.setSubmission_date(resultSet.getDate("submission_date"));
+            book.setSubmissionDate(resultSet.getDate("submission_date"));
 
             Reader reader = new Reader();
             reader.setId(resultSet.getInt("readers.id"));
@@ -112,17 +112,54 @@ public class BookDAO {
             book.setTitle(resultSet.getString("title"));
             book.setAuthor(resultSet.getString("author"));
             book.setYearOfProduction(Integer.parseInt(resultSet.getString("year_of_production")));
-            book.setSubmission_date(resultSet.getDate("submission_date"));
+            book.setSubmissionDate(resultSet.getDate("submission_date"));
             booksList.add(book);
         }
         return booksList;
     }
 
     public void releaseBook(int bookId, int readerId) throws SQLException {
-        String query = "UPDATE BOOKS SET READER_ID=null, PREVIOUS_READER=?,SUBMISSION_DATE=null  WHERE id = ?";
+        String query = "UPDATE BOOKS SET READER_ID=null, PREVIOUS_READER=?, SUBMISSION_DATE=null  WHERE id = ?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setInt(1, readerId);
         statement.setInt(2, bookId);
         statement.executeUpdate();
+    }
+
+    public List<Book> findBooksLike(String regex) throws SQLException {
+        String query = "SELECT * FROM BOOKS WHERE TITLE LIKE ? OR AUTHOR LIKE ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, "%" + regex + "%");
+        statement.setString(2, "%" + regex + "%");
+        ResultSet resultSet = statement.executeQuery();
+        List<Book> searchResult = new ArrayList<>();
+        while (resultSet.next()) {
+            Book book = new Book();
+            fillFullBookFromResultSet(book, resultSet);
+            searchResult.add(book);
+        }
+        return searchResult;
+    }
+
+    public Book findBookById(int bookId) throws SQLException {
+        String query = "SELECT * FROM BOOKS WHERE ID=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, bookId);
+        ResultSet resultSet = statement.executeQuery();
+        resultSet.next();
+        Book book = new Book();
+        fillFullBookFromResultSet(book, resultSet);
+        return book;
+    }
+
+    private Book fillFullBookFromResultSet(Book book, ResultSet resultSet) throws SQLException {
+        book.setId(resultSet.getInt("id"));
+        book.setTitle(resultSet.getString("title"));
+        book.setAuthor(resultSet.getString("author"));
+        book.setSubmissionDate(resultSet.getDate("submission_date"));
+        book.setReaderId(resultSet.getInt("reader_id"));
+        book.setPreviousReader(resultSet.getInt("previous_reader"));
+        book.setYearOfProduction(resultSet.getInt("year_of_production"));
+        return book;
     }
 }

@@ -27,7 +27,7 @@ public class FXApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(FXApp.class.getResource("/fx/project/javafxtest/Authorization.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 700, 400);
         stage.setTitle("Библиотека");
-        stage.getIcons().add(new Image(FXApp.class.getResourceAsStream("/assets/999135.png")));
+        stage.getIcons().add(new Image(FXApp.class.getResourceAsStream("/assets/LibraryWindowLogo.png")));
         stage.setScene(scene);
         stage.show();
     }
@@ -131,6 +131,28 @@ public class FXApp extends Application {
         DataKeeper.getInstance().setReaderIntData(readerId);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fx/project/javafxtest/EditReader.fxml"));
+        Parent root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+    }
+
+    public void switchToSceneShowBookInfo(MouseEvent event, int bookId) throws IOException {
+        DataKeeper.getInstance().setBookIntData(bookId);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fx/project/javafxtest/ShowBookInfo.fxml"));
+        Parent root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+    }
+
+    public void switchToSceneListBookFromSearch(MouseEvent event, String regex) throws IOException {
+        DataKeeper.getInstance().setBookStringData(regex);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fx/project/javafxtest/ListBooksFromSearch.fxml"));
         Parent root = loader.load();
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

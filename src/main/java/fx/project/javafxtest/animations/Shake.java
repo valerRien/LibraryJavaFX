@@ -9,11 +9,11 @@ public class Shake {
 
     public Shake(Node node) {
         transition = new TranslateTransition(Duration.millis(100), node);
-        transition.setFromX(0f);
-        transition.setFromY(0f);
-        transition.setByX(5f);
-        transition.setByY(3f);
-        transition.setCycleCount(3);
+        transition.setToX(3f);
+        transition.setToY(3f);
+        transition.setAutoReverse(true);
+        transition.setCycleCount(4);
+
     }
 
     public void playAnim() {

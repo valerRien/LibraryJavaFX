@@ -12,14 +12,14 @@
         <AnchorPane layoutY="59.0" prefHeight="341.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <ListView fx:id="listView" layoutY="47.0" prefHeight="230.0" prefWidth="700.0" />
-            <Label fx:id="selectedPanel" layoutX="14.0" layoutY="286.0" prefHeight="41.0" prefWidth="602.0" style="-fx-background-color: #ffff;" text="Выберите, чтобы напомнить об истечении срока сдачи">
+            <Label fx:id="selectedPanel" layoutX="143.0" layoutY="286.0" prefHeight="41.0" prefWidth="415.0" style="-fx-background-color: #ffff;" text="Выберите читателя для напоминания и нажмите:">
                <font>
-                  <Font name="Arial Black" size="18.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
-            <ImageView fx:id="sendNotice" fitHeight="70.0" fitWidth="103.0" layoutX="623.0" layoutY="272.0" onMouseReleased="#sendNotice" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="sendNotice" fitHeight="69.0" fitWidth="106.0" layoutX="564.0" layoutY="272.0" onMouseReleased="#sendNotice" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../assets/2310155.png" />
+                  <Image url="@../../../assets/EmailNoticeLogo.png" />
                </image>
             </ImageView>
             <Label fx:id="textTopLabel" layoutX="179.0" prefHeight="52.0" prefWidth="343.0" text="Читатели с просроченными книгами">
@@ -33,9 +33,9 @@
                 <Font name="Arial" size="40.0" />
             </font>
         </Label>
-      <ImageView fx:id="homeButton" fitHeight="58.0" fitWidth="66.0" layoutX="637.0" layoutY="2.0" onMouseReleased="#mouseReleasedHomeButton" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="homeButton" fitHeight="44.0" fitWidth="44.0" layoutX="645.0" layoutY="12.0" onMouseReleased="#mouseReleasedHomeButton" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../assets/793790.png" />
+            <Image url="@../../../assets/HomeButtomLogo.png" />
          </image>
       </ImageView>
     </children>
