@@ -1,5 +1,4 @@
 # ***Library App :book:***
-_____
 ## Description
 During my java learning I decided to try to make something working on Windows.
 For this reason I checked javaFX documentation, h2 database (the only one I found to make it built-in).
