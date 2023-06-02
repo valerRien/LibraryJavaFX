@@ -1,0 +1,50 @@
+
+
+Version:	3.14
+CmdLine:	C:\Users\Валера\IdeaProjects\JavaFXTest\Library.exe --l4j-debug
+WOW64:		yes
+Working dir:	C:\Users\Валера\IdeaProjects\JavaFXTest\.
+Java min ver:	1.000.000
+Java max ver:	1.020.000_000
+Bundled JRE(s):	C:\Users\??????\.jdks\openjdk-18.0.2.1
+Check launcher:	C:\Users\??????\.jdks\openjdk-18.0.2.1\bin\javaw.exe (not found)
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\Program Files\Java\jre-1.8\bin\javaw.exe (OK)
+Match:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_371
+Check launcher:	C:\Program Files\Java\jre-1.8\bin\javaw.exe (OK)
+Match:		1.008.000_371
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+64-bit search:	SOFTWARE\JavaSoft\JRE...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Runtime used:	1.008.000_371 (64-bit)
+Launcher:	C:\Program Files\Java\jre-1.8\bin\javaw.exe
+Launcher args:	-jar "C:\Users\Валера\IdeaProjects\JavaFXTest\Library.exe"
+Args length:	58/32768 chars
+Exit code:	0
+
+
+Version:	3.14
+CmdLine:	C:\Users\Валера\IdeaProjects\JavaFXTest\Library.exe --l4j-debug
+WOW64:		yes
+Working dir:	C:\Users\Валера\IdeaProjects\JavaFXTest\.
+Java min ver:	1.000.000
+Java max ver:	1.020.000_000
+Bundled JRE(s):	C:\Users\??????\.jdks\openjdk-18.0.2.1
+Check launcher:	C:\Users\??????\.jdks\openjdk-18.0.2.1\bin\javaw.exe (not found)
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\Program Files\Java\jre-1.8\bin\javaw.exe (OK)
+Match:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_371
+Check launcher:	C:\Program Files\Java\jre-1.8\bin\javaw.exe (OK)
+Match:		1.008.000_371
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+64-bit search:	SOFTWARE\JavaSoft\JRE...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Runtime used:	1.008.000_371 (64-bit)
+Launcher:	C:\Program Files\Java\jre-1.8\bin\javaw.exe
+Launcher args:	-jar "C:\Users\Валера\IdeaProjects\JavaFXTest\Library.exe"
+Args length:	58/32768 chars
+Exit code:	0
