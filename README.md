@@ -1,5 +1,4 @@
 # ***Library App :book:***
-_____
 ## Description
 During my java learning I decided to try to make something working on Windows.
 For this reason I checked javaFX documentation, h2 database (the only one I found to make it built-in).
@@ -16,3 +15,5 @@ if you use gmail, you have to make an app :key: and link this app.
 ##### ALL IMAGES ARE CLICKABLE!
 ![TimeOutReaders](https://github.com/valerRien/LibraryJavaFX/blob/master/src/main/resources/screenshots/2023-06-02_17-59-51.png)
 ![BooList](https://github.com/valerRien/LibraryJavaFX/blob/master/src/main/resources/screenshots/2023-06-02_17-59-27.png)
+______
+### There are still a lot of TO DO things like validators and code rafactoring
