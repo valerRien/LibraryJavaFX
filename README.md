@@ -3,7 +3,7 @@
 During my java learning I decided to try to make something working on Windows.
 For this reason I checked javaFX documentation, h2 database (the only one I found to make it built-in).
 So there is final version that everyone can download and launch.
-![MainMenu](https://github.com/valerRien/LibraryJavaFX/blob/master/src/main/resources/screenshots/2023-06-02_17-57-00.png)
+![MainMenu](https://github.com/valerRien/LibraryJavaFX/blob/master/src/main/resources/screenshots/MainMenu.png)
 ### Launching
 Download all files and launch `Library.exe.`
 Use *admin* as login and *admin* as a :key:
